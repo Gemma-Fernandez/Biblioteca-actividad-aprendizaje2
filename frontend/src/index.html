@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Biblioteca</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>📚 Gestor de Biblioteca</h1>
+    <p>Administración del catálogo usando nuestra propia API REST.</p>
+
+    <hr>
+
+    <section id="seccion-autores">
+        <h2>Gestión de Autores</h2>
+        
+        <form id="form-autor">
+            <input type="hidden" id="autor-id">
+            
+            <input type="text" id="autor-nombre" placeholder="Nombre del autor" required>
+            <input type="text" id="autor-nacionalidad" placeholder="Nacionalidad" required>
+            
+            <button type="submit">Guardar Autor</button>
+        </form>
+
+        <br>
+
+        <table border="1" width="100%">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Nacionalidad</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-autores">
+                </tbody>
+        </table>
+    </section>
+
+    <br><br><hr><br>
+
+    <section id="seccion-libros">
+        <h2>Gestión de Libros</h2>
+        
+        <form id="form-libro">
+            <input type="hidden" id="libro-id">
+            
+            <input type="text" id="libro-titulo" placeholder="Título del libro" required>
+            <input type="number" id="libro-anio" placeholder="Año de publicación" required>
+            
+            <select id="libro-autor_id" required>
+                <option value="">Selecciona un autor...</option>
+                </select>
+            
+            <button type="submit">Guardar Libro</button>
+        </form>
+
+        <br>
+
+        <table border="1" width="100%">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Año</th>
+                    <th>ID Autor</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-libros">
+                </tbody>
+        </table>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+</html>

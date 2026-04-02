@@ -6,6 +6,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+//IMPORTAR LAS VALIDACIONES
+const { validarLibro } = require('./validations/libroValidation');
+const { validarAutor } = require('./validations/autorValidation');
+
 const db = knex({
   client: 'sqlite3',
   connection: {
@@ -37,6 +41,8 @@ db.schema.hasTable('libros').then((exists) => {
     }
 });
 
+
+
 // LEER todos los libros
 app.get('/api/libros', async (req, res) => {
   try {
@@ -48,7 +54,7 @@ app.get('/api/libros', async (req, res) => {
 });
 
 //CREAR UN NUEVO LIBRO
-app.post('/api/libros', async (req, res) => {
+app.post('/api/libros', validarLibro,async (req, res) => {
   try {
     const { titulo, anio, autor_id } = req.body;
     const [id] = await db('libros').insert({ titulo, anio, autor_id });
@@ -59,7 +65,7 @@ app.post('/api/libros', async (req, res) => {
 });
 
 //ACTUALIZAR UN LIBRO
-app.put('/api/libros/:id', async (req, res) => {
+app.put('/api/libros/:id',  validarLibro, async (req, res) => {
     try {
         const { titulo, anio, autor_id } = req.body;
         await db('libros').where({ id: req.params.id }).update({ titulo, anio, autor_id });
@@ -90,7 +96,7 @@ app.get('/api/autores', async (req, res) => {
 });
 
 // CREAR AUTORES
-app.post('/api/autores', async (req, res) => {
+app.post('/api/autores', validarAutor, async (req, res) => {
     try {
         const { nombre, nacionalidad } = req.body;
         const [id] = await db('autores').insert({ nombre, nacionalidad });
@@ -101,7 +107,7 @@ app.post('/api/autores', async (req, res) => {
 });
 
 // EDITAR AUTORES
-app.put('/api/autores/:id', async (req, res) => {
+app.put('/api/autores/:id', validarAutor, async (req, res) => {
     try {
         const { nombre, nacionalidad } = req.body;
         await db('autores').where({ id: req.params.id }).update({ nombre, nacionalidad });

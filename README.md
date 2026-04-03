@@ -49,10 +49,20 @@ cd PROYECTOBIBLIOTECA
 Abre tu terminal y ejecuta el siguiente comando:
 ```bash
 npm install
+npm install express
 ```
 
 ### 3. Arrancar el servidor API
-Inicia el servidor backend con el siguiente comando en la terminal:
+Inicia el servidor backend con el siguiente comando en la terminal para crear la estructura de las tablas del servidor:
+```bash
+node server.js
+```
+Pulsa Ctrl+C en la terminal para detener el servidor un momento.
+Y ahora pon este comando para inyectar los datos en las tablas:
+```bash
+node seed.js
+```
+Para volver a arrancar el servidor ya con datos, vuelve a ejecutar este comando en la terminal:
 ```bash
 node server.js
 ```

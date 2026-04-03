@@ -106,17 +106,23 @@ document.getElementById('form-libro').addEventListener('submit', async (evento) 
     
     const id = document.getElementById('libro-id').value;
     const titulo = document.getElementById('libro-titulo').value;
-    const anio = document.getElementById('libro-anio').value;
-    const autor_id = document.getElementById('libro-autor_id').value;
+    const anio = parseInt(document.getElementById('libro-anio').value);
+    const autor_id = parseInt(document.getElementById('libro-autor_id').value);
     
     const metodo = id ? 'PUT' : 'POST';
     const ruta = id ? `${ApiUrl}/libros/${id}` : `${ApiUrl}/libros`;
 
-    await fetch(ruta, {
+    const respuesta = await fetch(ruta, {
         method: metodo,
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ titulo, anio, autor_id })
-    });
+
+});
+        if (!respuesta.ok) {
+        const data = await respuesta.json();
+        console.error("El backend se queja de esto:", data.errores);
+        return; // Detenemos la ejecución
+    }
 
     document.getElementById('form-libro').reset();
     document.getElementById('libro-id').value = '';

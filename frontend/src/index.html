@@ -18,8 +18,8 @@
         <form id="form-autor" class="formulario-crud">
             <input type="hidden" id="autor-id">
             
-            <input type="text" id="autor-nombre" class="campo-entrada" placeholder="Nombre del autor" required>
-            <input type="text" id="autor-nacionalidad" class="campo-entrada" placeholder="Nacionalidad" required>
+            <input type="text" id="autor-nombre" class="campo-entrada" placeholder="Nombre del autor" required pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+" title="El nombre solo puede contener letras y espacios">
+            <input type="text" id="autor-nacionalidad" class="campo-entrada" placeholder="Nacionalidad" required pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+" title="La nacionalidad solo puede contener letras y espacios">
             
             <button type="submit" class="boton-guardar">Guardar Autor</button>
         </form>
@@ -48,8 +48,8 @@
         <form id="form-libro" class="formulario-crud">
             <input type="hidden" id="libro-id">
             
-            <input type="text" id="libro-titulo" class="campo-entrada" placeholder="Título del libro" required>
-            <input type="number" id="libro-anio" class="campo-entrada" placeholder="Año de publicación" required>
+            <input type="text" id="libro-titulo" class="campo-entrada" placeholder="Título del libro" required pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+" title="El título solo puede contener letras y espacios">
+            <input type="number" id="libro-anio" class="campo-entrada" placeholder="Año de publicación" required min="0" max="9999" title="El año debe ser un número entre 0 y 9999">
             
             <select id="libro-autor_id" class="campo-entrada" required>
                 <option value="">Selecciona un autor...</option>

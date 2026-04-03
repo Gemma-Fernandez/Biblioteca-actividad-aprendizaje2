@@ -12,7 +12,7 @@ Este proyecto ha sido desarrollado siguiendo las directrices de la actividad de 
 - **Validación robusta:** Los datos enviados desde el frontend son evaluados en el backend utilizando el middleware `express-validator` antes de interactuar con la base de datos. Si se detectan errores, la API rechaza la petición devolviendo los errores estructurados (Status 400).
 - **Flujo de trabajo en equipo (Git):** El ciclo de vida del desarrollo se ha gestionado empleando ramas individuales para las nueva características, fusionándose finalmente en la rama principal a través de *Pull Requests*.
 
-## 🛠 Stack Tecnológico
+## Stack Tecnológico
 
 **Frontend:**
 - HTML5, CSS3 y Vanilla JavaScript.

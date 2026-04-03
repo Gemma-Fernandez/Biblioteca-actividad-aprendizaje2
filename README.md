@@ -43,4 +43,20 @@ Abre tu terminal y descarga el código del proyecto:
 ```bash
 git clone https://github.com/Gemma-Fernandez/Biblioteca-actividad-aprendizaje2.git
 cd PROYECTOBIBLIOTECA
+```
+
+### 2. Instalar dependencias del Backend
+Abre tu terminal y ejecuta el siguiente comando:
+```bash
+npm install
+```
+
+### 3. Arrancar el servidor API
+Inicia el servidor backend con el siguiente comando en la terminal:
+```bash
+node server.js
+```
+
+### 4. Abrir el frontend
+Localizando el archivo **index.html** y haciendo doble clic sobre él, se abrirá el navegador.  
 
